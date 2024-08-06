@@ -113,7 +113,21 @@ taglerin güzel kısmı checkout için hash yerine tag yazabiliriz
     git checkout main
 
 #### Branches
-
+    git branch test
+test branch i yaratıldı
+    git checkout test
+test.txt edit ve branch.txt eklendi
+    git add .
+    git commit -m "test.txt edit branch.txt added"
+    git checkout main
+test.txt edit
+    git add .
+    git commit -m "edit in text.txt"
+    git merge test
+branch.txt eklendi bi conflict yok ancak test.txt conflict var conflict editor'de çözüldü
+    git branch -d test
+    git add .
+    git commit -m "basic branch tutorial end"
 
 
 
