@@ -32,8 +32,7 @@ git config --global user.email johndoe@example.com
 
 git'in o dosyadan haberi varsa tracked yoksa untracked
 haberi olan dosyada değişiklik yaptıysan modified
-untracked veya modified dosyayı aşağıdaki komut ile eklersen
+untracked dosyayı aşağıdaki komut ile eklersen
 git add a.xyz       // linux terminal gibi çalışır örneğin *.xyz xyz uzantılı tüm dosyalar veya [],? vb.
-o dosya staged oluyor
+o dosya modified oluyor // test edelim şuanki halini commitliyorum
 commit'lendiği zaman da unmodified'a geri dönüyorlar
-
