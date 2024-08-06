@@ -84,7 +84,34 @@ checkout un "asıl görevi" bu değil geçmiş commitlerde gezinmek için ki asl
     git log
 test.txt yi eklemeden önceki bir halimize gidelim
     git checkout 5733a3ae01d6edd6c8f3f89dbb42db8310d421d2
-aynı şekilde geri dönebiliriz
+aynı komutla geri dönebiliriz
+    git checkout main
+
+#### Remote
+Yaptığımız her şeyi remote repository lerde de yapabiliriz read/write (pull/push) olması kaydı ile
+    git remote
+origin göreceğiz, git in servera atadağı default isim
+    git fetch origin
+yaptığımızda serverdaki değişiklikler bizim git imize eklenicek biz ulaşmadığımız sürece local repository de görünmeyecek
+    git pull
+yapsaydık son hali local repository e gelicekti
+    git push ile değişikliklerimizi servera yüklüyoruz conflict olursa onunla ilgileniyoruz conflict i daha sonra konuşalım
+
+#### Tag
+versiyon belirtebiliriz belirtelim -a ile ekliyoruz option olmadan görüntülüyoruz
+    git tag
+boş
+    git tag -a v0.1 -m "bu durumda bişey ifade etmiyor"
+    git tag
+v0.1
+taglerin güzel kısmı checkout için hash yerine tag yazabiliriz
+    git add .
+    git commit -m "checkout tag"
+    git tag -a v0.2
+    git checkout v0.1
+    git checkout v0.2
+
+#### Branches
 
 
 
