@@ -29,10 +29,35 @@ git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 
 #### git'te dosyaların 1 + 1 * (3) = 4 durumu vardır: untracked | tracked (unmodified, modified, staged)
-
 git'in o dosyadan haberi varsa tracked yoksa untracked
 haberi olan dosyada değişiklik yaptıysan modified
 untracked dosyayı aşağıdaki komut ile eklersen
-git add a.xyz       // linux terminal gibi çalışır örneğin *.xyz xyz uzantılı tüm dosyalar veya [],? vb.
-o dosya modified oluyor // test edelim şuanki halini commitliyorum
+    git add a.xyz       // linux terminal gibi çalışır örneğin *.xyz xyz uzantılı tüm dosyalar veya [],? vb.
+o dosya staged oluyor
+
+test edelim şuanki halini commitliyorum         bf3d67fd926ba3f0792926cf745d0eea5b892ae5
+yeni dosya oluşturduk text.txt
+    git status
+untracked olduğunu gördük
+    git add .
+staged oldu
+    git commit -m "untracked file commit"       436cbdff2d62c21a95d3fb7d1124975613ee59c8
 commit'lendiği zaman da unmodified'a geri dönüyorlar
+
+#### .gitignore
+belki bazı dosyalarımızı sadece kendimiz için tutuyoruz veya bilmiyorum android için yazdığımız bir programı windows'da yazarken testing için kullandığımız program kendi dosyalarını eklemiştir repository'e...
+
+bu gibi durumlarda git "gereksiz" diyebileceğim dosyaların snapshot'a eklenmemesi için .gitignore'a o dosyaları ekleyebiliriz.
+
+    unity/*Fun*
+
+
+#### geçmiş commitleri inceleme
+birazdan branchlere geçeceğiz ondan önce mevcut branch'teki commit'leri yönetelim
+hangi branch'te olduğumuzu
+    git status
+commitlerimizi görmek için
+    git log     // powershell'deysek log'dan çıkmak için "q"
+
+
+
