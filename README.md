@@ -70,5 +70,22 @@ hangi branch'te olduğumuzu
     git status
 commitlerimizi görmek için
     git log     // powershell'deysek log'dan çıkmak için "q"
+pek çok farklı option var log'da çünkü yüzlerce commiti olacaktır aylarca uğralılan bir projede ihtiyacınıza göre bakın optionlara
+
+en son açtığınız commit veya stage den sonra bir dosyada yaptığınız değişiklikleri geri almak için
+    git checkout -- filename.xyz
+stageleseniz bile geri almak için
+    git restore filename.xyz
+
+checkout un "asıl görevi" bu değil geçmiş commitlerde gezinmek için ki aslında bunu branchlerle daha kullanışlı hale getireceğiz extensionlar ile bu işlemleri terminal yerine UI üzerinden de gerçekleştirebilirdik
+    git add .
+    git commit -m "checkout yapacagım"
+    git push
+    git log
+test.txt yi eklemeden önceki bir halimize gidelim
+    git checkout 5733a3ae01d6edd6c8f3f89dbb42db8310d421d2
+aynı şekilde geri dönebiliriz
+
+
 
 
