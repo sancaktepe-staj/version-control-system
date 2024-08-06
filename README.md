@@ -25,109 +25,109 @@ Kullanıcılar bir projeden bir dosyanın snapshot'ını değil tüm projeyi al�
 
 ### Kullanımı
 **Authentication**
-git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com
+- git config --global user.name "John Doe"
+- git config --global user.email johndoe@example.com
 
 #### git'te dosyaların 1 + 1 * (3) = 4 durumu vardır: untracked | tracked (unmodified, modified, staged)
-git'in o dosyadan haberi varsa tracked yoksa untracked
-haberi olan dosyada değişiklik yaptıysan modified
-untracked dosyayı aşağıdaki komut ile eklersen
-    git add a.xyz       // linux terminal gibi çalışır örneğin *.xyz xyz uzantılı tüm dosyalar veya [],? vb.
-o dosya staged oluyor
+- git'in o dosyadan haberi varsa tracked yoksa untracked
+- haberi olan dosyada değişiklik yaptıysan modified
+- untracked dosyayı aşağıdaki komut ile eklersen
+-     git add a.xyz      // linux terminal gibi çalışır örneğin *.xyz xyz uzantılı tüm dosyalar veya [],? vb.
+- o dosya staged oluyor
 
-test edelim şuanki halini commitliyorum         bf3d67fd926ba3f0792926cf745d0eea5b892ae5
-yeni dosya oluşturduk text.txt
-    git status
-untracked olduğunu gördük
-    git add .
-staged oldu
-    git commit -m "untracked file commit"       436cbdff2d62c21a95d3fb7d1124975613ee59c8
-commit'lendiği zaman da unmodified'a geri dönüyorlar
+- test edelim şuanki halini commitliyorum         bf3d67fd926ba3f0792926cf745d0eea5b892ae5
+- yeni dosya oluşturduk text.txt
+ -    git status
+- untracked olduğunu gördük
+-     git add .
+- staged oldu
+-     git commit -m "untracked file commit"       436cbdff2d62c21a95d3fb7d1124975613ee59c8
+- commit'lendiği zaman da unmodified'a geri dönüyorlar
+- 
+- unstaged dosyaları gözlemlemek için
+-     git diff
+- unstaged dosyalarınızı stagelemekle uğraşmamak için -a seçeneği mevcut
+- 
+- #### .gitignore
+- belki bazı dosyalarımızı sadece kendimiz için tutuyoruz veya bilmiyorum android için yazdığımız bir programı windows'da yazarken testing için - kullandığımız emulator kendi dosyalarını eklemiştir repository'e... bilmiyorum
+- 
+- bu gibi durumlarda git "gereksiz" diyebileceğim dosyaların snapshot'a eklenmemesi için .gitignore'a o dosyaları ekleyebiliriz.
+-     unity/*Fun*
+- 
+- bir dosyayı gitten silmek için önce dosya ekleyip commitleyelim
+-     git add .
+-     git commit -m "test2 added2"
+- test2.txt yi silelim
+-     git status
+- iki seçenek var ya direkt sildiğimiz söyleyeceğiz
+-     git rm test2.txt
+- veya
+-     git add .
+- 
+- #### geçmiş commitleri inceleme
+- birazdan branchlere geçeceğiz ondan önce mevcut branch'teki commit'leri yönetelim
+- hangi branch'te olduğumuzu
+-     git status
+- commitlerimizi görmek için
+-     git log     // powershell'deysek log'dan çıkmak için "q"
+- pek çok farklı option var log'da çünkü yüzlerce commiti olacaktır aylarca uğralılan bir projede ihtiyacınıza göre bakın optionlar- a
 
-unstaged dosyaları gözlemlemek için
-    git diff
-unstaged dosyalarınızı stagelemekle uğraşmamak için -a seçeneği mevcut
+- en son açtığınız commit veya stage den sonra bir dosyada yaptığınız değişiklikleri geri almak için
+-     git checkout -- filename.xyz
+- stageleseniz bile geri almak iç- in
+-     git restore filename.xy- z
 
-#### .gitignore
-belki bazı dosyalarımızı sadece kendimiz için tutuyoruz veya bilmiyorum android için yazdığımız bir programı windows'da yazarken testing için kullandığımız emulator kendi dosyalarını eklemiştir repository'e... bilmiyorum
-
-bu gibi durumlarda git "gereksiz" diyebileceğim dosyaların snapshot'a eklenmemesi için .gitignore'a o dosyaları ekleyebiliriz.
-    unity/*Fun*
-
-bir dosyayı gitten silmek için önce dosya ekleyip commitleyelim
-    git add .
-    git commit -m "test2 added2"
-test2.txt yi silelim
-    git status
-iki seçenek var ya direkt sildiğimiz söyleyeceğiz
-    git rm test2.txt
-veya
-    git add .
-
-#### geçmiş commitleri inceleme
-birazdan branchlere geçeceğiz ondan önce mevcut branch'teki commit'leri yönetelim
-hangi branch'te olduğumuzu
-    git status
-commitlerimizi görmek için
-    git log     // powershell'deysek log'dan çıkmak için "q"
-pek çok farklı option var log'da çünkü yüzlerce commiti olacaktır aylarca uğralılan bir projede ihtiyacınıza göre bakın optionlara
-
-en son açtığınız commit veya stage den sonra bir dosyada yaptığınız değişiklikleri geri almak için
-    git checkout -- filename.xyz
-stageleseniz bile geri almak için
-    git restore filename.xyz
-
-checkout un "asıl görevi" bu değil geçmiş commitlerde gezinmek için ki aslında bunu branchlerle daha kullanışlı hale getireceğiz extensionlar ile bu işlemleri terminal yerine UI üzerinden de gerçekleştirebilirdik
-    git add .
-    git commit -m "checkout yapacagım"
-    git push
-    git log
-test.txt yi eklemeden önceki bir halimize gidelim
-    git checkout 5733a3ae01d6edd6c8f3f89dbb42db8310d421d2
-aynı komutla geri dönebiliriz
-    git checkout main
+- checkout un-  "asıl görevi" bu değil geçmiş commitlerde gezinmek için ki aslında bunu branchlerle daha kullanışlı hale getireceğiz extensionlar - ile bu işlemleri terminal y- erine UI üzerinden de gerçekleştirebilirdik
+-     git add .- 
+-     git commit -m "checkout yapacagım"
+-     git push- 
+-     git log
+- test.txt yi eklemeden önceki bir halimize gidelim
+-     git checkout 5733a3ae01d6edd6c8f3f89dbb42db8310d421d2
+- aynı komutla geri dönebiliriz
+-     git checkout main
 
 #### Remote
-Yaptığımız her şeyi remote repository lerde de yapabiliriz read/write (pull/push) olması kaydı ile
-    git remote
-origin göreceğiz, git in servera atadağı default isim
-    git fetch origin
-yaptığımızda serverdaki değişiklikler bizim git imize eklenicek biz ulaşmadığımız sürece local repository de görünmeyecek
-    git pull
-yapsaydık son hali local repository e gelicekti
-    git push ile değişikliklerimizi servera yüklüyoruz conflict olursa onunla ilgileniyoruz conflict i daha sonra konuşalım
+- Yaptığımız her şeyi remote repository lerde de yapabiliriz read/write (pull/push) olması kaydı ile
+-     git remote
+- origin göreceğiz, git in servera atadağı default isim
+-     git fetch origin
+- yaptığımızda serverdaki değişiklikler bizim git imize eklenicek biz ulaşmadığımız sürece local repository de görünmeyecek
+-     git pull
+- yapsaydık son hali local repository e gelicekti
+-     git push ile değişikliklerimizi servera yüklüyoruz conflict olursa onunla ilgileniyoruz conflict i daha sonra konuşalım
 
-#### Tag
-versiyon belirtebiliriz belirtelim -a ile ekliyoruz option olmadan görüntülüyoruz
-    git tag
-boş
-    git tag -a v0.1 -m "bu durumda bişey ifade etmiyor"
-    git tag
-v0.1
-taglerin güzel kısmı checkout için hash yerine tag yazabiliriz
-    git add .
-    git commit -m "checkout tag"
-    git tag -a v0.2
-    git checkout v0.1
-    git checkout v0.2 (işe yaramadı tabii ki çünkü v0.1deki detached head i v0.2 den habersiz)
-    git checkout main
-
-#### Branches
-    git branch test
-test branch i yaratıldı
-    git checkout test
-test.txt edit ve branch.txt eklendi
-    git add .
-    git commit -m "test.txt edit branch.txt added"
-    git checkout main
-test.txt edit
-    git add .
-    git commit -m "edit in text.txt"
-    git merge test
-branch.txt eklendi bi conflict yok ancak test.txt conflict var conflict editor'de çözüldü
-    git branch -d test
-    git add .
-    git commit -m "basic branch tutorial end"
+- #### Tag
+- versiyon belirtebiliriz belirtelim -a ile ekliyoruz option olmadan görüntülüyoruz
+-     git tag
+- boş 
+-     git tag -a v0.1 -m "bu durumda bişey ifade etmiyor"
+-      git tag
+- v0.1
+- taglerin güzel kısmı checkout için hash yerine tag yazabiliriz
+-     git add .
+-     git commit -m "ch- eckout tag"
+-     git tag -a v0.2
+-     git checkout v0.1
+-     git checkout v0.2 (işe yaramadı tabii ki çünkü v0.1deki detached head i v0.2 den habersiz)
+-     git checkout main
+- 
+- #### Branches
+-     git branch test
+- test branch i yaratıldı
+-     git checkout test
+- test.txt edit ve branch.txt eklendi
+-     git add .
+-     git commit -m "test.txt edit branch.txt added"
+-     git checkout main
+- test.txt edit
+-     git add .
+-     git commit -m "edit in text.txt"
+-     git merge test
+- branch.txt eklendi bi conflict yok ancak test.txt conflict var conflict editor'de çözüldü
+-     git branch -d test
+-     git add .
+-     git commit -m "basic branch tutorial end"
 
 
 
