@@ -109,7 +109,8 @@ taglerin güzel kısmı checkout için hash yerine tag yazabiliriz
     git commit -m "checkout tag"
     git tag -a v0.2
     git checkout v0.1
-    git checkout v0.2
+    git checkout v0.2 (işe yaramadı tabii ki çünkü v0.1deki detached head i v0.2 den habersiz)
+    git checkout main
 
 #### Branches
 
