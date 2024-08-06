@@ -44,13 +44,25 @@ staged oldu
     git commit -m "untracked file commit"       436cbdff2d62c21a95d3fb7d1124975613ee59c8
 commit'lendiği zaman da unmodified'a geri dönüyorlar
 
+unstaged dosyaları gözlemlemek için
+    git diff
+unstaged dosyalarınızı stagelemekle uğraşmamak için -a seçeneği mevcut
+
 #### .gitignore
-belki bazı dosyalarımızı sadece kendimiz için tutuyoruz veya bilmiyorum android için yazdığımız bir programı windows'da yazarken testing için kullandığımız program kendi dosyalarını eklemiştir repository'e...
+belki bazı dosyalarımızı sadece kendimiz için tutuyoruz veya bilmiyorum android için yazdığımız bir programı windows'da yazarken testing için kullandığımız emulator kendi dosyalarını eklemiştir repository'e... bilmiyorum
 
 bu gibi durumlarda git "gereksiz" diyebileceğim dosyaların snapshot'a eklenmemesi için .gitignore'a o dosyaları ekleyebiliriz.
-
     unity/*Fun*
 
+bir dosyayı gitten silmek için önce dosya ekleyip commitleyelim
+    git add .
+    git commit -m "test2 added2"
+test2.txt yi silelim
+    git status
+iki seçenek var ya direkt sildiğimiz söyleyeceğiz
+    git rm test2.txt
+veya
+    git add .
 
 #### geçmiş commitleri inceleme
 birazdan branchlere geçeceğiz ondan önce mevcut branch'teki commit'leri yönetelim
@@ -58,6 +70,5 @@ hangi branch'te olduğumuzu
     git status
 commitlerimizi görmek için
     git log     // powershell'deysek log'dan çıkmak için "q"
-
 
 
