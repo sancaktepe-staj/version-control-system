@@ -131,3 +131,10 @@ Kullanıcılar bir projeden bir dosyanın snapshot'ını değil tüm projeyi al�
 
 
 
+#### Forking
+- Fork ladım repoyu
+- git push
+- yaptığımda hala sancaktepe grubunun reposuna push luyor
+- engellemek için
+- git remote set-url origin https://github.com/sancaktepe-staj/version-control-system
+- deniyorum
